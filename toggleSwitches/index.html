@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <script src="jquery.js"></script>
+    <title>Toggle switches</title>
+</head>
+<body>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f1f1f1;
+            user-select: none; 
+            outline: none;
+            transition: .3s;
+        }
+
+        .axe{
+            width: 70px;
+            height: 30px;
+            border: solid 2px black;
+            border-radius: 50px;
+            
+        }   
+        
+        .anatiny{
+            position:relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 29px;
+            height: 29px;
+            border: solid 1px ;
+            border-radius: 100%;
+            cursor: pointer;
+        }
+
+        
+        
+    </style>
+
+    <div class="LD">
+        <div class="axe">
+            <div class="anatiny">
+                <i class="fa-regular fa-sun" id="icon"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="lg">
+
+    </div>
+
+
+    <script>
+        $(document).ready(function() {
+            let etat=1;
+            $(".anatiny").click(function(){
+                
+                if (etat==1){
+                $(this).animate(
+                    {
+                        left:'40px',
+                       
+                    }
+                
+                );
+                $(".anatiny").css('background-color','black');
+                $("#icon").css('color','#fff');
+                $('body').css('background-color','rgb(60, 60, 60)');
+                $(".axe").css('border-color','white');
+                $(".anatiny").css('border','none');
+                $("#icon").removeClass('fa-sun');
+                $("#icon").addClass('fa-moon');
+                etat=2;
+                }
+
+                else{
+                    $(this).animate(
+                    {
+                        left:'0px'
+                    }
+                );
+                $(".anatiny").css('background-color','white');
+                $("#icon").css('color','black');
+                $('body').css('background-color','white');
+                $(".axe").css('border-color','black');
+                $(".anatiny").css('border','solid 1px black');
+                $("#icon").removeClass('fa-moon');
+                $("#icon").addClass('fa-sun');
+                etat=1;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
